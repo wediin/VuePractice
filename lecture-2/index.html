@@ -12,6 +12,12 @@
   <h1 v-once>{{title}}</h1> 
   <p>{{ title }} - <a v-bind:href="link">Google</a></p>
   <p v-html="finishedLink"></p>
+  <button v-on:click="increase(2, $event)">Click me</button>
+  <p>{{ counter }}</p>
+  <p v-on:mousemove="updateCoordinates">
+    Coordinates: {{ x }} / {{ y }}
+    - <span v-on:mousemove="dummy">DEAD STOP</span>
+  </p>
 </div>
 <script>
   new Vue({
@@ -19,7 +25,10 @@
     data: {
       title: 'Hello World!',
       link: 'https://google.com',
-      finishedLink: '<a href="https://google.com">Google</a>'
+      finishedLink: '<a href="https://google.com">Google</a>',
+      x: 0,
+      y: 0,
+      counter: 0
     },
     methods: {
       sayHello: function() {
@@ -28,6 +37,16 @@
       },
       changeTitle: function(event) {
         this.title = event.target.value;
+      },
+      increase: function(step, event) {
+        this.counter += step;
+      },
+      updateCoordinates: function(event) {
+        this.x = event.clientX;
+        this.y = event.clientY;
+      },
+      dummy: function(event) {
+        event.stopPropagation();
       }
     }
   });
