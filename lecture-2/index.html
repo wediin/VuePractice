@@ -18,6 +18,7 @@
     Coordinates: {{ x }} / {{ y }}
     - <span v-on:mousemove.stop="">DEAD STOP</span>
   </p>
+  <input type="text" v-on:keyup.enter.space="alertMe">
 </div>
 <script>
   new Vue({
@@ -47,6 +48,9 @@
       },
       dummy: function(event) {
         event.stopPropagation();
+      },
+      alertMe: function() {
+        alert('Alert!');
       }
     }
   });
