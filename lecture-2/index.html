@@ -16,7 +16,7 @@
   <p>{{ counter }}</p>
   <p v-on:mousemove="updateCoordinates">
     Coordinates: {{ x }} / {{ y }}
-    - <span v-on:mousemove="dummy">DEAD STOP</span>
+    - <span v-on:mousemove.stop="">DEAD STOP</span>
   </p>
 </div>
 <script>
