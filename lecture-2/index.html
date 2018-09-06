@@ -21,6 +21,8 @@
   <input type="text" v-on:keyup.enter.space="alertMe">
   <input type="text" v-model="name">
   <p>{{ name }}</p>
+  <button v-on:click="counter++">counter plus</button>
+  <p>{{ output }}</p>
 </div>
 <script>
   new Vue({
@@ -33,6 +35,11 @@
       y: 0,
       counter: 0,
       name: 'hsukvn'
+    },
+    computed: {
+      output: function() {
+        return this.counter > 5 ? 'gg' : 'yy';
+      }
     },
     methods: {
       sayHello: function() {
