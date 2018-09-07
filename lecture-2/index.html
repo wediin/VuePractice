@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>VueJS</title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="styles.css">
   <script src="vue.js"></script>
 </head>
 <body>
@@ -23,6 +23,12 @@
   <p>{{ name }}</p>
   <button @click="counter++">counter plus</button>
   <p>{{ output }}</p>
+  <div
+    class="demo"
+    @click="attachRed = !attachRed"
+    :class="{red: attachRed}"></div>
+  <div class="demo"></div>
+  <div class="demo"></div>
 </div>
 <script>
   new Vue({
@@ -34,7 +40,8 @@
       x: 0,
       y: 0,
       counter: 0,
-      name: 'hsukvn'
+      name: 'hsukvn',
+      attachRed: false
     },
     computed: {
       output: function() {
