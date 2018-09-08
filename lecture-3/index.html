@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>VueJS</title>
+  <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <p v-if="show">You can see me <span>Hello!</span></p>
+  <p v-else>Do you see me?</p>
+  <p>Do you see me?</p>
+  <button @click="show = !show">switch</button>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      show: true
+    }
+  })
+</script>
+</body>
+</html>
