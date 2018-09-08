@@ -16,7 +16,7 @@
   <p v-show="show">Do you see me?</p>
   <button @click="show = !show">switch</button>
   <ul>
-    <li v-for="ingredient in ingredients">{{ ingredient }}</li>
+    <li v-for="(ingredient, i) in ingredients">{{ ingredient }} ({{ i }})</li>
   </ul>
 </div>
 <script>
